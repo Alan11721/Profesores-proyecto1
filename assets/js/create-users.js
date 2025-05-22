@@ -43,6 +43,4 @@ async function createInitialUsers() {
   }
 }
 
-// Ejecutar una sola vez para crear los usuarios iniciales
-// COMENTA O ELIMINA ESTA LÍNEA DESPUÉS DE USARLA
 createInitialUsers();

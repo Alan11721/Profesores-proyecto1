@@ -50,13 +50,12 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .teachers-grid {
         grid-template-columns: 1fr;
     }
 }
-/* Agregar a tu archivo styles.css */
+
 #mainChart {
     width: 100% !important;
     height: 100% !important;
@@ -72,7 +71,6 @@ body {
     max-width: 300px;
 }
 
-/* Mejorar la visualización de la tabla */
 .table-responsive {
     max-height: 600px;
     overflow-y: auto;

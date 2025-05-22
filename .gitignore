@@ -1,0 +1,11 @@
+# Firebase cache
+.firebase/
+
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Sistema operativo
+.DS_Store

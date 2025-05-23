@@ -48,7 +48,7 @@ onAuthStateChanged(auth, async (user) => {
         });
     }
 
-    // Actualizar UI
+    // Actualizar interfaz
     if (loginSection) loginSection.style.display = "none";
     if (appContent) appContent.style.display = "block";
     if (userEmailSpan) userEmailSpan.textContent = user.email;
@@ -62,7 +62,7 @@ onAuthStateChanged(auth, async (user) => {
     initializeApp();
 });
 
-// Configurar UI según el rol
+// Configurar interfaz según el rol
 function setUIForRole(role) {
     const adminElements = document.querySelectorAll('.admin-only');
     adminElements.forEach(el => {
@@ -218,8 +218,7 @@ async function loadTeachers(searchTerm = '') {
     }
 }
 
-// formato tabla 
-
+// Renderizar tabla de profesores
 function renderTeachersTable(querySnapshot) {
     const teachersList = document.getElementById('teachersList');
     
@@ -281,10 +280,30 @@ function renderTeachersTable(querySnapshot) {
         </div>
     `;
 
-    
+    // Agregar event listeners a los botones 
+    addButtonEventListeners();
 }
 
+// Función para agregar event listeners a los botones de editar y borrar
+function addButtonEventListeners() {
+    // Botones de editar
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const teacherId = button.getAttribute('data-id');
+            editTeacher(teacherId);
+        });
+    });
 
+    // Botones de borrar
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const teacherId = button.getAttribute('data-id');
+            deleteTeacher(teacherId);
+        });
+    });
+}
 
 // Editar profesor
 async function editTeacher(id) {
@@ -423,7 +442,7 @@ exportExcelBtn?.addEventListener('click', async () => {
     }
 });
 
-// Crear usuario nuevo (solo admin)
+// Crear usuario nuevo solo admin
 createUserBtn?.addEventListener('click', async () => {
     if (!verifyAdminAccess()) return;
     
